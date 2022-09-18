@@ -148,7 +148,7 @@ const TabbedDatagrid = () => {
                         render={record => `${record.line_items.reduce((previousValue, currentValue) => previousValue + currentValue.quantity, 0)} ürün`}
                     />
                     <FunctionField 
-                        label="Total" 
+                        label="Total"
                         sx={{ fontWeight: 'bold' }} 
                         render={record => `${record.total} ${record.currency_symbol}`} 
                         textAlign="right"
