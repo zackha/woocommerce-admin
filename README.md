@@ -1,8 +1,7 @@
 ## WooCommerce Admin
 
-<p align="center">
 An open-source composable commerce engine built for developers.
-</p>
+
 <p align="center">
   <a href="https://github.com/medusajs/medusa/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Medusa is released under the MIT license." />
