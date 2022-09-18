@@ -35,7 +35,7 @@ const OrderList = () => (
 );
 
 const orderFilters = [
-    <TextInput label="Müşteri Ara" variant='outlined' source="search" alwaysOn />
+    <TextInput label="Search" variant='outlined' source="search" alwaysOn />
 ];
 
 const tabs = [
@@ -109,21 +109,21 @@ const TabbedDatagrid = () => {
                 <Datagrid optimized rowClick='edit' expand={<OrderShow />} empty={<CustomEmpty />} bulkActionButtons={<PostBulkActionButtons />}>
                     <TextField 
                         source="id" 
-                        label="Paket No"
+                        label="Order"
                     />
                     <FunctionField 
-                        label="Sipariş Tarihi"
+                        label="Date"
                         render={record => `${new Date(record.date_created).toLocaleDateString('tr-TR', dateSettings)}`}
                     />
                     <FunctionField 
-                        label="Alıcı"
+                        label="Customer"
                         render={record => `${record.billing.first_name} ${record.billing.last_name}`} />
                     <FunctionField 
-                        label="Toplam Ürün"
+                        label="Total Product"
                         render={record => `${record.line_items.reduce((previousValue, currentValue) => previousValue + currentValue.quantity, 0)} ürün`}
                     />
                     <FunctionField 
-                        label="Satış Tutarı" 
+                        label="Total" 
                         sx={{ fontWeight: 'bold' }} 
                         render={record => `${record.total} ${record.currency_symbol}`} 
                         textAlign="right"
@@ -134,21 +134,21 @@ const TabbedDatagrid = () => {
                 <Datagrid rowClick='edit' expand={<OrderShow />}>
                     <TextField 
                         source="id" 
-                        label="Paket No"
+                        label="Order"
                     />
                     <FunctionField 
-                        label="Sipariş Tarihi"
+                        label="Date"
                         render={record => `${new Date(record.date_created).toLocaleDateString('tr-TR', dateSettings)}`}
                     />
                     <FunctionField 
-                        label="Alıcı"
+                        label="Customer"
                         render={record => `${record.billing.first_name} ${record.billing.last_name}`} />
                     <FunctionField 
-                        label="Toplam Ürün"
+                        label="Total Product"
                         render={record => `${record.line_items.reduce((previousValue, currentValue) => previousValue + currentValue.quantity, 0)} ürün`}
                     />
                     <FunctionField 
-                        label="Satış Tutarı" 
+                        label="Total" 
                         sx={{ fontWeight: 'bold' }} 
                         render={record => `${record.total} ${record.currency_symbol}`} 
                         textAlign="right"
@@ -159,21 +159,21 @@ const TabbedDatagrid = () => {
                 <Datagrid rowClick='edit' expand={<OrderShow />}>
                     <TextField 
                         source="id" 
-                        label="Paket No"
+                        label="Order"
                     />
                     <FunctionField 
-                        label="Sipariş Tarihi"
+                        label="Date"
                         render={record => `${new Date(record.date_created).toLocaleDateString('tr-TR', dateSettings)}`}
                     />
                     <FunctionField 
-                        label="Alıcı"
+                        label="Customer"
                         render={record => `${record.billing.first_name} ${record.billing.last_name}`} />
                     <FunctionField 
-                        label="Toplam Ürün"
+                        label="Total Product"
                         render={record => `${record.line_items.reduce((previousValue, currentValue) => previousValue + currentValue.quantity, 0)} ürün`}
                     />
                     <FunctionField 
-                        label="Satış Tutarı" 
+                        label="Total" 
                         sx={{ fontWeight: 'bold' }} 
                         render={record => `${record.total} ${record.currency_symbol}`} 
                         textAlign="right"
