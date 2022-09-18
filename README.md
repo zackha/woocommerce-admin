@@ -1,6 +1,6 @@
-## WooCommerce Admin
+# WooCommerce Admin
 
-An open-source composable commerce engine built for developers.
+An alternative open source woocommerce admin panel developed with React admin infrastructure.
 
 <p align="center">
   <a href="https://github.com/medusajs/medusa/blob/master/LICENSE">
