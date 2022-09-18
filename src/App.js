@@ -8,9 +8,9 @@ import authProvider from './authProvider';
 import LoginPage from './LoginPage.js';
 
 const dataProvider = woocommerceData({
-    woocommerceUrl: 'https://rays.com.tr',
-    consumerKey: 'ck_439fa39f6e74f3d935a8380d10b57d2d4496e863',
-    consumerSecret: 'cs_0949742191ee4ece4ca859336ab3f80337447fdf',
+    woocommerceUrl: 'https://example.com',
+    consumerKey: 'ck_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    consumerSecret: 'cs_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
 })
 
 const App = () => (
