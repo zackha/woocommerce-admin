@@ -17,11 +17,10 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://rays.com.tr/">
-        Rays Giyim
+      <Link color="inherit" href="https://github.com/zackha">
+        Zackha
       </Link>{' '}
       {new Date().getFullYear()}
-      {'.'}
     </Typography>
   );
 }
