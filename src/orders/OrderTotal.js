@@ -16,7 +16,7 @@ export default function OrderTotal() {
   const CouponTitle = () => {
     if (Object.keys(record.coupon_lines).length === 0) 
       return 
-      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>Kupon</Typography>
+      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>Coupon</Typography>
   }
 
   const Coupon = () => {
@@ -28,13 +28,13 @@ export default function OrderTotal() {
   const CouponTotal = () => {
     if (Object.keys(record.coupon_lines).length === 0) 
       return
-      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }} align='right'>-{record.discount_total} TL</Typography>
+      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }} align='right'>-{record.discount_total}</Typography>
   }
 
   const FeeTitle = () => {
     if (Object.keys(record.fee_lines).length === 0) 
       return 
-      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>İndirim</Typography>
+      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>Fee</Typography>
   }
 
   const Fee = () => {
@@ -46,28 +46,28 @@ export default function OrderTotal() {
   const FeeTotal = () => {
     if (Object.keys(record.fee_lines).length === 0) 
       return 
-      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }} align='right'>{record.fee_lines[0].total} TL</Typography>
+      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }} align='right'>{record.fee_lines[0].total}</Typography>
   }
 
   const RefundTitle = () => {
     if (Object.keys(record.refunds).length === 0) 
       return 
-      return <Typography variant="body2" sx={{ color: 'error.main', mt: 1.5, mb: 1.5 }}>İade edilen</Typography>
+      return <Typography variant="body2" sx={{ color: 'error.main', mt: 1.5, mb: 1.5 }}>Refunded</Typography>
   }
 
   const RefundTotal = () => {
     if (Object.keys(record.refunds).length === 0) 
       return 
       const totalRefund = record.refunds.reduce((previousValue, currentValue) => previousValue + Number(currentValue.total), 0);
-      return <Typography variant="body2" sx={{ color: 'error.main', mt: 1.5, mb: 1.5 }} align='right'>{totalRefund} TL</Typography>
+      return <Typography variant="body2" sx={{ color: 'error.main', mt: 1.5, mb: 1.5 }} align='right'>{totalRefund}</Typography>
   }
 
   const NetTotal = () => {
     if (Object.keys(record.refunds).length === 0) 
-      return <Typography variant="body2" sx={{fontWeight: 'bold', mt: 1.5}} align='right'>{orderTotal} TL</Typography>
+      return <Typography variant="body2" sx={{fontWeight: 'bold', mt: 1.5}} align='right'>{orderTotal}</Typography>
       const totalRefund = record.refunds.reduce((previousValue, currentValue) => previousValue + Number(currentValue.total), 0);
       const netPayment = totalRefund + orderTotal;
-      return <Typography variant="body2" sx={{fontWeight: 'bold', mt: 1.5}} align='right'>{netPayment.toFixed(2)} TL</Typography>
+      return <Typography variant="body2" sx={{fontWeight: 'bold', mt: 1.5}} align='right'>{netPayment.toFixed(2)}</Typography>
   }
 
   return (
@@ -75,17 +75,17 @@ export default function OrderTotal() {
       <CardContent sx={{ p: 3 }}>
         <Grid container>
           <Grid item xs={4}>
-            <Typography variant="body2" sx={{ mb: 1.5 }}>Ürün toplam</Typography>
-            <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>Gönderim</Typography>
+            <Typography variant="body2" sx={{ mb: 1.5 }}>Product Total</Typography>
+            <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>Shipping</Typography>
             <FeeTitle />
             <CouponTitle />
-            <Typography variant="body2" sx={{ fontWeight: 'bold', mt: 1.5, mb: 1.5 }}>Sipariş toplam</Typography>
+            <Typography variant="body2" sx={{ fontWeight: 'bold', mt: 1.5, mb: 1.5 }}>Order Total</Typography>
             <Divider />
             <RefundTitle/>
-            <Typography variant="body2" sx={{ mt: 1.5 }}>Net ödeme</Typography>
+            <Typography variant="body2" sx={{ mt: 1.5 }}>Net Total</Typography>
           </Grid>
           <Grid item xs={3}>
-            <Typography variant="body2" sx={{ mb: 1.5 }}>{productQuantity} ürün</Typography>
+            <Typography variant="body2" sx={{ mb: 1.5 }}>{productQuantity} item</Typography>
             <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>{shipping}</Typography>
             <Fee />
             <Coupon />
@@ -93,11 +93,11 @@ export default function OrderTotal() {
             <Divider />
           </Grid>
           <Grid item xs={5}>
-            <Typography variant="body2" sx={{ mb: 1.5 }} align='right'>{productTotal.toLocaleString()} TL</Typography>
-            <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }} align='right'>{shippingTotal.toLocaleString()} TL</Typography>
+            <Typography variant="body2" sx={{ mb: 1.5 }} align='right'>{productTotal.toLocaleString()}</Typography>
+            <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }} align='right'>{shippingTotal.toLocaleString()}</Typography>
             <FeeTotal />
             <CouponTotal />
-            <Typography variant="body2" sx={{ fontWeight: 'bold', mt: 1.5, mb: 1.5 }} align='right'>{orderTotal} TL</Typography>
+            <Typography variant="body2" sx={{ fontWeight: 'bold', mt: 1.5, mb: 1.5 }} align='right'>{orderTotal}</Typography>
             <Divider />
             <RefundTotal />
             <NetTotal/>

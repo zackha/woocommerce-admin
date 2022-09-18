@@ -31,7 +31,7 @@ export default function RefundCreate() {
         </Grid>
         <Grid item xs={3}>
           <Typography component="div" variant="h6">
-            <strong>İade</strong>
+            <strong>Refund</strong>
           </Typography>
         </Grid>
       </Grid>
@@ -47,7 +47,7 @@ export default function RefundCreate() {
                     <ArrayInput label='' source="line_items">
                       <SimpleFormIterator inline disableRemove disableReordering>
                         <TextInput variant="outlined" source="id" />
-                        <NumberInput variant="outlined" label="Adet" source="quantity" />
+                        <NumberInput variant="outlined" label="Quantity" source="quantity" />
                         <NumberInput variant="outlined" label="Tutar" source="refund_total" />
                       </SimpleFormIterator>
                     </ArrayInput>
@@ -57,8 +57,8 @@ export default function RefundCreate() {
               <Grid item xs={4}>
                 <Card variant="outlined">
                   <CardContent>
-                    <TextInput source="amount" label="İade Tutarı" variant="outlined" fullWidth />
-                    <SaveButton label="İade Et" icon={<CurrencyExchangeIcon />} fullWidth />
+                    <TextInput source="amount" label="Amount" variant="outlined" fullWidth />
+                    <SaveButton label="Refund" icon={<CurrencyExchangeIcon />} fullWidth />
                   </CardContent>
                 </Card>
               </Grid>

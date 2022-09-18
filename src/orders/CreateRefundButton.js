@@ -13,7 +13,7 @@ const CreateRefundButton = () => {
       component={Link}
       to={{pathname: `/orders/${record.id}/refunds/create`}}
     >
-      İade
+      Refund
     </Button>
     );
 };

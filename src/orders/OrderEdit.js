@@ -29,10 +29,10 @@ const record = useRecordContext();
           </Grid>
           <Grid item xs={3}>
             <Typography component="div" variant="h6">
-              <strong>Sipariş #{record.id}</strong>
+              <strong>Order #{record.id}</strong>
             </Typography>
             <Typography fontSize={14} color="text.secondary">
-              {new Date(record.date_created).toLocaleDateString('tr-TR', dateSettings)}
+              {new Date(record.date_created).toLocaleDateString('en-EN', dateSettings)}
             </Typography>
           </Grid>
           <Grid item xs={8} align='right'>

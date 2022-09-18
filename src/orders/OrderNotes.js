@@ -9,12 +9,12 @@ export default function OrderNotes () {
   const { data, isLoading, error } = useGetManyReference('orders', { target: 'notes', id: record.id });
   const dateSettings = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
   if (isLoading) { return <Loading />; }
-  if (error) { return <p>Sipariş notları bulunamadı!</p>; }
+  if (error) { return <p>No notes!</p>; }
   return (
     <Card variant="outlined">
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Sipariş notları
+          Order Notes
         </Typography>
         {data.map((note) => (
           <Box mt={1.8}>

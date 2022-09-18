@@ -19,12 +19,12 @@ import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 const status = { status: "completed" };
 
 const ChangeStatusButton = () => (
-    <BulkUpdateButton label="Kargoya verildi" data={status} icon={<AssignmentTurnedInIcon/>} />
+    <BulkUpdateButton label="Completed" data={status} icon={<AssignmentTurnedInIcon/>} />
 );
 
 const PostBulkActionButtons = () => (
     <>
-        <ChangeStatusButton label="Kargoya verildi" />
+        <ChangeStatusButton label="Completed" />
     </>
 );
 
@@ -63,7 +63,7 @@ const useGetTotals = (filterValues) => {
 
 const CustomEmpty = () => (
     <Typography sx={{ my: 5, mx: 2 }} color="text.secondary" align="center">
-        Sipariş bulunmamaktadır
+        No Order
     </Typography>
 )
 
@@ -113,14 +113,14 @@ const TabbedDatagrid = () => {
                     />
                     <FunctionField 
                         label="Date"
-                        render={record => `${new Date(record.date_created).toLocaleDateString('tr-TR', dateSettings)}`}
+                        render={record => `${new Date(record.date_created).toLocaleDateString('en-EN', dateSettings)}`}
                     />
                     <FunctionField 
                         label="Customer"
                         render={record => `${record.billing.first_name} ${record.billing.last_name}`} />
                     <FunctionField 
                         label="Total Product"
-                        render={record => `${record.line_items.reduce((previousValue, currentValue) => previousValue + currentValue.quantity, 0)} ürün`}
+                        render={record => `${record.line_items.reduce((previousValue, currentValue) => previousValue + currentValue.quantity, 0)} item`}
                     />
                     <FunctionField 
                         label="Total" 

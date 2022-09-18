@@ -16,11 +16,11 @@ const items = useRecordContext();
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Resim</TableCell>
-              <TableCell>Ürün</TableCell>
-              <TableCell>Fiyat</TableCell>
-              <TableCell align="center">Adet</TableCell>
-              <TableCell align="right">Toplam</TableCell>
+              <TableCell>İmage</TableCell>
+              <TableCell>Item</TableCell>
+              <TableCell>Price</TableCell>
+              <TableCell align="center">Quantity</TableCell>
+              <TableCell align="right">Total</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -28,9 +28,9 @@ const items = useRecordContext();
               <TableRow key={item.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                 <TableCell component="th" scope="row"><Avatar variant="rounded" src={item.image.src} sx={{ width: 60, height: 90 }}/></TableCell>
                 <TableCell>{item.name}<br /><small>{item.sku} - {item.meta_data[0].display_value}</small><br /><small>{item.id}</small></TableCell>
-                <TableCell>{item.subtotal} TL</TableCell>
+                <TableCell>{item.subtotal}</TableCell>
                 <TableCell align="center">{item.quantity}</TableCell>
-                <TableCell align="right">{item.total} TL</TableCell>
+                <TableCell align="right">{item.total}</TableCell>
               </TableRow>
             ))}
           </TableBody>
