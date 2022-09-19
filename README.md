@@ -12,6 +12,10 @@ An alternative open source woocommerce admin panel developed with [React Admin](
 4. Edit `App.js` and fill in `woocommerceUrl`, `consumerKey` and `consumerSecret` with your generated API keys
 5. `yarn start`
 
+If your API is on another domain as the JS code, you'll need to whitelist this header with an Access-Control-Expose-Headers CORS header.
+
+You need to allow access to the your IP number, from the firewall settings (whitelist - allowlist) of your server where your WooCommerce site is located.
+
 ## License
 
 Licensed under the [MIT License](https://github.com/zackha/woocommerce-admin/blob/master/LICENSE)
