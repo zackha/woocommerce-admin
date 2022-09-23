@@ -10,6 +10,7 @@ import WestIcon from '@mui/icons-material/West';
 import OrderNotes from './OrderNotes';
 import OrderTotal from './OrderTotal';
 import CreateRefundButton from './CreateRefundButton';
+import OrderStatus from './OrderStatus';
 
 const OrderEdit = () => (
     <Edit component="div">
@@ -32,7 +33,7 @@ const record = useRecordContext();
               <strong>Order #{record.id}</strong>
             </Typography>
             <Typography fontSize={14} color="text.secondary">
-              {new Date(record.date_created).toLocaleDateString('en-EN', dateSettings)}
+              {new Date(record.date_created).toLocaleDateString('tr-TR', dateSettings)}
             </Typography>
           </Grid>
           <Grid item xs={8} align='right'>
@@ -42,25 +43,37 @@ const record = useRecordContext();
       </Box>
       <Grid container spacing={2}>
         <Grid item xs={8}>
-            <Box mb={2}>
-              <ListItemsField />
-            </Box>
-            <Box>
+          <Card sx={{ mb: 2, boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px", borderRadius: 3 }}>
+            <ListItemsField />
+          </Card>
+          <Card sx={{ mb: 2, boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px", borderRadius: 3 }}>
+            <CardContent sx={{ p: 3 }}>
               <OrderTotal />
-            </Box>
+            </CardContent>
+          </Card>
         </Grid>
-          <Grid item xs={4}>
-            <Card sx={{ mb: 2 }} variant="outlined">
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {record.billing.first_name} {record.billing.last_name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  <CustomerField />
-                </Typography>
-              </CardContent>
-            </Card>
-          <OrderNotes />
+        <Grid item xs={4}>
+          <Card sx={{ mb: 2, boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px", borderRadius: 3 }}>
+            <CardContent sx={{mt: 1}}>
+              <OrderStatus />
+            </CardContent>
+          </Card>
+          <Card sx={{ mb: 2, boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px", borderRadius: 3 }}>
+            <CardContent>
+              <Typography gutterBottom variant="h6" component="div">
+                <strong>Customer</strong>
+              </Typography>
+              <CustomerField />
+            </CardContent>
+          </Card>
+          <Card sx={{ mb: 2, boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px", borderRadius: 3 }}>
+            <CardContent>
+              <Typography gutterBottom variant="h6" component="div">
+                <strong>Order Notes</strong>
+              </Typography>
+              <OrderNotes />
+            </CardContent>
+          </Card>
         </Grid>
       </Grid>
     </Form>

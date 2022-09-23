@@ -2,8 +2,6 @@ import { useRecordContext } from 'react-admin';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 
 export default function OrderTotal() {
   const record = useRecordContext();
@@ -16,7 +14,7 @@ export default function OrderTotal() {
   const CouponTitle = () => {
     if (Object.keys(record.coupon_lines).length === 0) 
       return 
-      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>Coupon</Typography>
+      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>Coupons</Typography>
   }
 
   const Coupon = () => {
@@ -28,13 +26,13 @@ export default function OrderTotal() {
   const CouponTotal = () => {
     if (Object.keys(record.coupon_lines).length === 0) 
       return
-      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }} align='right'>-{record.discount_total}</Typography>
+      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }} align='right'>-{record.discount_total} {record.currency_symbol}</Typography>
   }
 
   const FeeTitle = () => {
     if (Object.keys(record.fee_lines).length === 0) 
       return 
-      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>Fee</Typography>
+      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>Fees</Typography>
   }
 
   const Fee = () => {
@@ -46,7 +44,7 @@ export default function OrderTotal() {
   const FeeTotal = () => {
     if (Object.keys(record.fee_lines).length === 0) 
       return 
-      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }} align='right'>{record.fee_lines[0].total}</Typography>
+      return <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }} align='right'>{record.fee_lines[0].total} {record.currency_symbol}</Typography>
   }
 
   const RefundTitle = () => {
@@ -59,51 +57,47 @@ export default function OrderTotal() {
     if (Object.keys(record.refunds).length === 0) 
       return 
       const totalRefund = record.refunds.reduce((previousValue, currentValue) => previousValue + Number(currentValue.total), 0);
-      return <Typography variant="body2" sx={{ color: 'error.main', mt: 1.5, mb: 1.5 }} align='right'>{totalRefund}</Typography>
+      return <Typography variant="body2" sx={{ color: 'error.main', mt: 1.5, mb: 1.5 }} align='right'>{totalRefund} {record.currency_symbol}</Typography>
   }
 
   const NetTotal = () => {
     if (Object.keys(record.refunds).length === 0) 
-      return <Typography variant="body2" sx={{fontWeight: 'bold', mt: 1.5}} align='right'>{orderTotal}</Typography>
+      return <Typography variant="body2" sx={{fontWeight: 'bold', mt: 1.5}} align='right'>{orderTotal} {record.currency_symbol}</Typography>
       const totalRefund = record.refunds.reduce((previousValue, currentValue) => previousValue + Number(currentValue.total), 0);
       const netPayment = totalRefund + orderTotal;
-      return <Typography variant="body2" sx={{fontWeight: 'bold', mt: 1.5}} align='right'>{netPayment.toFixed(2)}</Typography>
+      return <Typography variant="body2" sx={{fontWeight: 'bold', mt: 1.5}} align='right'>{netPayment.toFixed(2)} {record.currency_symbol}</Typography>
   }
 
   return (
-    <Card variant="outlined">
-      <CardContent sx={{ p: 3 }}>
-        <Grid container>
-          <Grid item xs={4}>
-            <Typography variant="body2" sx={{ mb: 1.5 }}>Product Total</Typography>
-            <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>Shipping</Typography>
-            <FeeTitle />
-            <CouponTitle />
-            <Typography variant="body2" sx={{ fontWeight: 'bold', mt: 1.5, mb: 1.5 }}>Order Total</Typography>
-            <Divider />
-            <RefundTitle/>
-            <Typography variant="body2" sx={{ mt: 1.5 }}>Net Total</Typography>
-          </Grid>
-          <Grid item xs={3}>
-            <Typography variant="body2" sx={{ mb: 1.5 }}>{productQuantity} item</Typography>
-            <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>{shipping}</Typography>
-            <Fee />
-            <Coupon />
-            <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>&nbsp;</Typography>
-            <Divider />
-          </Grid>
-          <Grid item xs={5}>
-            <Typography variant="body2" sx={{ mb: 1.5 }} align='right'>{productTotal.toLocaleString()}</Typography>
-            <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }} align='right'>{shippingTotal.toLocaleString()}</Typography>
-            <FeeTotal />
-            <CouponTotal />
-            <Typography variant="body2" sx={{ fontWeight: 'bold', mt: 1.5, mb: 1.5 }} align='right'>{orderTotal}</Typography>
-            <Divider />
-            <RefundTotal />
-            <NetTotal/>
-          </Grid>
-        </Grid>
-      </CardContent>
-    </Card>
+    <Grid container>
+      <Grid item xs={4}>
+        <Typography variant="body2" sx={{ mb: 1.5 }}>Items Subtotal</Typography>
+        <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>Shipping</Typography>
+        <FeeTitle />
+        <CouponTitle />
+        <Typography variant="body2" sx={{ fontWeight: 'bold', mt: 1.5, mb: 1.5 }}>Order Total</Typography>
+        <Divider />
+        <RefundTitle/>
+        <Typography variant="body2" sx={{ fontWeight: 'bold', mt: 1.5 }}>Net Payment</Typography>
+      </Grid>
+      <Grid item xs={3}>
+        <Typography variant="body2" sx={{ mb: 1.5 }}>{productQuantity} item</Typography>
+        <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>{shipping}</Typography>
+        <Fee />
+        <Coupon />
+        <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }}>&nbsp;</Typography>
+        <Divider />
+      </Grid>
+      <Grid item xs={5}>
+        <Typography variant="body2" sx={{ mb: 1.5 }} align='right'>{productTotal.toLocaleString()} {record.currency_symbol}</Typography>
+        <Typography variant="body2" sx={{ mt: 1.5, mb: 1.5 }} align='right'>{shippingTotal.toLocaleString()} {record.currency_symbol}</Typography>
+        <FeeTotal />
+        <CouponTotal />
+        <Typography variant="body2" sx={{ fontWeight: 'bold', mt: 1.5, mb: 1.5 }} align='right'>{orderTotal} {record.currency_symbol}</Typography>
+        <Divider />
+        <RefundTotal />
+        <NetTotal/>
+      </Grid>
+    </Grid>
   );
 }

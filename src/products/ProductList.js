@@ -30,7 +30,7 @@ const MyUrlField = () => {
 }
 
 const ProductList = () => (
-  <List>
+  <List sort={{ order: 'desc' }}>
       <Datagrid>
           <MyUrlField label='Product' />
       </Datagrid>

@@ -47,8 +47,8 @@ export default function RefundCreate() {
                     <ArrayInput label='' source="line_items">
                       <SimpleFormIterator inline disableRemove disableReordering>
                         <TextInput variant="outlined" source="id" />
-                        <NumberInput variant="outlined" label="Quantity" source="quantity" />
-                        <NumberInput variant="outlined" label="Tutar" source="refund_total" />
+                        <NumberInput variant="outlined" source="quantity" />
+                        <NumberInput variant="outlined" source="refund_total" />
                       </SimpleFormIterator>
                     </ArrayInput>
                   </CardContent>
@@ -57,7 +57,7 @@ export default function RefundCreate() {
               <Grid item xs={4}>
                 <Card variant="outlined">
                   <CardContent>
-                    <TextInput source="amount" label="Amount" variant="outlined" fullWidth />
+                    <TextInput source="amount" variant="outlined" fullWidth />
                     <SaveButton label="Refund" icon={<CurrencyExchangeIcon />} fullWidth />
                   </CardContent>
                 </Card>

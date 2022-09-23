@@ -1,10 +1,15 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { useLogin, useNotify } from 'react-admin';
+import { 
+  useLogin, 
+  useNotify,
+} from 'react-admin';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -17,17 +22,18 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://github.com/zackha">
-        Zackha
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
       </Link>{' '}
       {new Date().getFullYear()}
+      {'.'}
     </Typography>
   );
 }
 
 const theme = createTheme();
 
-export default function LoginPage() {
+export default function SignInSide() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const login = useLogin();
@@ -35,8 +41,9 @@ export default function LoginPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // will call authProvider.login({ username, password })
     login({ username, password }).catch(() =>
-      notify('Hatalı kullanıcı adı veya şifre')
+      notify('Invalid username or password')
     );
   };
 
@@ -79,16 +86,27 @@ export default function LoginPage() {
                 margin="normal"
                 required
                 fullWidth
+                id="email"
                 label="Username"
+                name="email"
+                autoComplete="email"
                 onChange={event => setUsername(event.target.value)}
+                autoFocus
               />
               <TextField
                 margin="normal"
                 required
                 fullWidth
+                name="password"
                 label="Password"
                 type="password"
+                id="password"
                 onChange={event => setPassword(event.target.value)}
+                autoComplete="current-password"
+              />
+              <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
               />
               <Button
                 type="submit"
@@ -98,6 +116,18 @@ export default function LoginPage() {
               >
                 Sign In
               </Button>
+              <Grid container>
+                <Grid item xs>
+                  <Link href="#" variant="body2">
+                    Forgot password?
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link href="#" variant="body2">
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </Grid>
+              </Grid>
               <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>

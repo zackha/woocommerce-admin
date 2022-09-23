@@ -6,6 +6,4 @@ export default {
     list: OrderList,
     edit: OrderEdit,
     icon: InboxIcon,
-    recordRepresentation: (record) => `${record.billing.first_name} ${record.billing.last_name}`,
-    options: { label: 'Orders' }
 };
