@@ -8,7 +8,7 @@ An alternative open source woocommerce admin panel developed with [React Admin](
 
 1. Clone this repo using terminal `git clone https://github.com/zackha/woocommerce-admin.git`
 2. `cd woocommerce-admin`
-3. `yarn install`
+3. `yarn install` 
 4. Edit `App.js` and fill in `woocommerceUrl`, `consumerKey` and `consumerSecret` with your generated API keys
 5. `yarn start`
 6. Username: john | Password: 123
