@@ -11,7 +11,7 @@ An alternative open source woocommerce admin panel developed with [React Admin](
 3. `yarn install`
 4. Edit `App.js` and fill in `woocommerceUrl`, `consumerKey` and `consumerSecret` with your generated API keys
 5. `yarn start`
-6. Username: john | Password: 123 
+6. Username: john | Password: 123
 
 If your API is on another domain as the JS code, you'll need to whitelist this header with an Access-Control-Expose-Headers CORS header.
 
