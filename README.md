@@ -17,6 +17,6 @@ If your API is on another domain as the JS code, you'll need to whitelist this h
 
 You need to allow access to the your IP number, from the firewall settings (whitelist - allowlist) of your server where your WooCommerce site is located.
 
-## License
+## License  
 
 Licensed under the [MIT License](https://github.com/zackha/woocommerce-admin/blob/master/LICENSE)
