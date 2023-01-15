@@ -2,7 +2,7 @@
 
 An alternative open source woocommerce admin panel developed with [React Admin](https://github.com/marmelab/react-admin)
 
-![preview](https://raw.githubusercontent.com/zackha/woocommerce-admin/master/preview2.png)
+![preview](https://raw.githubusercontent.com/zackha/woocommerce-admin/master/preview4.png)
 
 ### Installing
 
