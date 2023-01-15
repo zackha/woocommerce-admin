@@ -2,7 +2,7 @@
 
 An alternative open source woocommerce admin panel developed with [React Admin](https://github.com/marmelab/react-admin)
 
-<img src="https://raw.githubusercontent.com/zackha/zackha/main/woocommerce-admin.gif" height="300px">
+![preview](https://raw.githubusercontent.com/zackha/woocommerce-admin/master/preview2.png)
 
 ### Installing
 
@@ -16,6 +16,8 @@ An alternative open source woocommerce admin panel developed with [React Admin](
 If your API is on another domain as the JS code, you'll need to whitelist this header with an Access-Control-Expose-Headers CORS header.
 
 You need to allow access to the your IP number, from the firewall settings (whitelist - allowlist) of your server where your WooCommerce site is located.
+
+<img src="https://raw.githubusercontent.com/zackha/zackha/main/woocommerce-admin.gif" height="300px">
 
 ## License  
 
