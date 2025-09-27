@@ -37,17 +37,17 @@ const links = computed<NavigationMenuItem[][]>(() => [
     {
       label: 'Open Source',
       icon: 'i-simple-icons-github',
-      to: 'https://github.com/zackha/nuxtcommerce-admin',
+      to: 'https://github.com/zackha/woocommerce-admin',
       target: '_blank',
     },
   ],
 ]);
 
 const user = ref({
-  name: 'Nuxtcommerce',
+  name: 'WooCommerce',
   avatar: {
     src: 'https://commerce.nuxt.dev/logo.svg',
-    alt: 'Nuxtcommerce',
+    alt: 'WooCommerce',
   },
 });
 
