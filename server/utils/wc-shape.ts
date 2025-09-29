@@ -23,6 +23,7 @@ export function shapeOrderListItem(o: any) {
       email: o?.billing?.email ?? undefined,
       phone: o?.billing?.phone ?? undefined,
     },
+    raw: o, // Tüm verinin olduğu JSON verisi
   };
 }
 

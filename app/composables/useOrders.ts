@@ -6,6 +6,7 @@ export type Order = {
   date_created: string;
   billing?: { first_name?: string; last_name?: string; email?: string; phone?: string };
   line_items?: Array<{ id: number; name: string; quantity: number; total: string }>;
+  raw?: any; // Tüm verinin olduğu JSON verisi
 };
 
 export const useOrders = () => {
