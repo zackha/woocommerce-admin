@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { TableColumn } from '@nuxt/ui';
 
-const perPage = 5;
+const perPage = 20;
 const route = useRoute();
 const router = useRouter();
 
@@ -81,8 +81,8 @@ const columns: TableColumn<Order>[] = [
       ),
   },
   {
-    accessorKey: 'createdAt',
-    header: 'Created',
+    accessorKey: 'date_created',
+    header: 'Date',
     cell: ({ row }) => useTimeAgo(row.original.date_created).value,
   },
   {
